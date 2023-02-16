@@ -9,6 +9,7 @@ import { onProductPage } from "../support/page_objects/productPage"
 describe("Buy t-shirt, shoes and perfume", () => {
 
     it("Add t-shirt and shoes to the cart", () => {
+        
         cy.openHomePage()
 
         let tshirtItem
