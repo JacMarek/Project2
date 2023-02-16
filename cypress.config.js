@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  //projectId: "5hcz76",
+  projectId: "7yhi13",
   //numTestsKeptInMemory: 1000, //chat gtp tips
   //testFiles: '**/*-spec.js', //chat gtp tips
   viewportHeight: 1080,
