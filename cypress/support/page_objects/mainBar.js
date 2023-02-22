@@ -1,23 +1,28 @@
-class MainBar {
+export class MainBar {
 
+    mainLogoBtn = '[title="Automation Test Store"][alt="Automation Test Store"]'
+    checkCartBtn = '#topnav [data-id="menu_cart"]'
+    searchbar = '#filter_keyword'
+    categoryMenu = '#categorymenu'
+    subcategoriesMenu = '.subcategories'
+    
     clickMainLogoBtn() {
-        cy.get('[title="Automation Test Store"][alt="Automation Test Store"]').click()
+        cy.get(this.mainLogoBtn).click()
     }
 
     checkCart() {
-        cy.get('#main_menu_top').find('[data-id="menu_cart"]').click()
+        cy.get(this.checkCartBtn).click()
+        return cy.url().should('include', '/cart').then(() => {
+            return cy.wrap(null);
+        })
     }
 
-    searchbar() {
-        return cy.get('#filter_keyword')
+    getApparealAndAccessoriesBtn() {
+        return cy.get(this.categoryMenu).contains('Apparel & accessories')
     }
 
-    apparealAndAccessoriesBtn() {
-        return cy.get('#categorymenu').contains('Apparel & accessories')
-    }
-
-    apparealAndAccessoriesMenu() {
-        return this.apparealAndAccessoriesBtn().parent().find('.subcategories').invoke('show')
+    showApparealAndAccessoriesMenu() {
+        return this.getApparealAndAccessoriesBtn().parent().find(this.subcategoriesMenu).invoke('show')
     }
 
 };
